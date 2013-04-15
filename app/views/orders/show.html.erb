@@ -1,0 +1,33 @@
+<h1> Order Detail </h1>
+
+<div class="row">
+	<aside class="detail">
+	<h3> Curstomer Name : <%= @order.user.name %> </h3>
+		
+			<i>Created_at:<%= @order.created_at %></i>
+		
+		
+		<ul>
+		<% @details.each do |d| %>
+		
+			<li>
+			<b>
+		<p> Product ID: <%= d.product_id%>
+
+
+		<p> Number Product <%= d.number_product %>
+		<p> Total price: <%= d.total_price %> </p>
+		<b>
+		</li>
+		
+		<%end %>
+		<hr size="3">
+		<strong style="font-style:italic; color:green;">
+		<p> Total Price Order: <%= @order.total_price %> </p>
+		<p> Status Order : <%= @order.status %> </p>
+		</strong>
+		<%= link_to "Update Status", edit_order_path(@order) %>
+		
+	</b>
+	</aside>
+</div>

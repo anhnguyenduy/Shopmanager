@@ -1,0 +1,9 @@
+<h1>
+	<%= gravatar_for @user %>
+	<%= @user.name%>
+	<% if current_user.admin %>
+	<%= link_to "View Orders", orders%>
+	<%= link_to "Edit Acount", edit_user_path(@user) %>
+	<% end%>
+
+</h1>

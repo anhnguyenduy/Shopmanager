@@ -1,0 +1,73 @@
+// Place all the styles related to the MainPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.row{
+	width: 960px;
+
+}
+.Sliderbar{
+	float: left;
+	width: 300px;
+	background-color: #FFCC99;
+	ul{
+
+		list-style: none;
+
+		
+		li{
+
+			line-height: 2px;
+			border-bottom: solid black 1px;
+			
+				
+
+			a{
+				color: black;
+				text-decoration: none;
+
+			}
+			a:hover{
+
+				text-decoration: underline;
+				color: white;
+			}
+		}
+
+	}
+	
+
+}
+.Content{
+	width: 600px;
+	float: right;
+}
+.product{
+	width: 280px;
+	float: left;
+	background-color: #BBBBBB;
+	border: 2px white solid;
+	padding-left: 15px;
+}
+.catalog_title{
+
+	background-color: #696969;
+	color: white;
+	padding:10px 0; 
+
+}
+.catalog{
+
+	width: 600px;
+	clear: both;
+}
+.title{
+
+	text-color: white;
+	:hover{
+
+		text-decoration: none;
+		color: red;
+	};
+}

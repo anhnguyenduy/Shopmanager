@@ -1,0 +1,50 @@
+
+  <div class="center hero-unit">
+    <h1><%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/'%>
+    	SHOP MANAGER</h1>
+
+    
+
+    <%= link_to "Register Now!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+  
+<div class="row">
+<div class="Sliderbar">
+	<h2 class="title"> <%=link_to "Categories", categories_path %> </h2>
+	<ul>
+		
+		<% @categories.each do |cat| %>
+		<li>
+			<h3><%= link_to cat.name, cat %></h3>
+
+		
+		</li>
+		<% end %>
+	</ul>
+</div>
+<div class="Content">
+	<h2 class="title"><%= link_to "Products", products_path %></h2>
+<% @categories.each do |c| %>
+<div class="catalog">
+	<h3 class="catalog_title"> <%= link_to c.name, c  %> </h3>
+	<% @products=c.products.paginate(page: params[:page]) %>
+	<% @products.each do |product| %>
+
+	<div class="product">
+		<section>
+		<%= gravatar_for_product(product, size:70) %>
+
+		<h4><%=link_to product.name, product %></h4>
+		<b>price: <%=product.cost %> </b>
+
+		</section>
+	</div>
+	
+	<% end %>
+	<%= will_paginate @products %>
+</div>
+	<% end %>
+</div>
+</div>

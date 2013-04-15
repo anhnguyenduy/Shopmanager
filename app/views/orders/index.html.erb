@@ -1,0 +1,25 @@
+<h1> All Order for <%= current_user.name %></h1>
+<div class="row">
+<aside class="order">
+	<ul >
+	<% if !@orders.nil?  %>
+	<% @orders.each do |o| %>
+		<h3><li> <%= o.user.name %> </li>
+			
+			</h3>
+			
+			<b><p>  Address: <%= o.address %> </p>
+			<p>Phone Number: <%=o.phone %> </p>
+			<p> Created_at: <%=o.created_at %></p>
+			<p> Total_product: <%=o.number_product %> </p>
+			<p> Total Price: <%=o.total_price %><p>
+			<p class="note"> Note:</br> <%= o.note %> </b>
+			</br>
+			<%= link_to "View detail",o %>|
+			<%= link_to "Update Status",edit_order_path(o)%>
+	<% end %>
+	<% end %>
+	
+</ul>
+</aside>
+	</div>

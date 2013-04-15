@@ -1,0 +1,29 @@
+
+<h1> Categories Page</h1>
+<div class="row">
+	<div class="offset3">
+		<aside>
+			
+			<%= link_to "New Category", new_category_path, class: "btn btn-large btn-primary" unless !signed_in? ||!current_user.admin%>
+			<%= will_paginate @categories %>
+			<ul class="categories">
+		
+		<% @categories.each do |cat| %>
+		<li><h3><%= cat.name %></h3>
+		
+			<%= link_to "View Products", cat %>
+		<% if signed_in? && current_user.admin %>
+			|<%= link_to "Edit",edit_category_path(cat)%>
+			|<a href="<%= new_product_path %>?id=<%= cat.id %>"> Add Product </a>
+			|<%= link_to "Add Product",new_product_path, id: cat.id %>
+			|<%= link_to "Delete", cat, method: "delete", data: {confirm: "You Sure?"} %>
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+	</br>
+		
+	</aside>
+	</div>
+
+</div>

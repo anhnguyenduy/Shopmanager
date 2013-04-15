@@ -1,0 +1,21 @@
+<h1>Submit Information for Order </h1>
+
+<div class=" span6 offset2">
+	
+	<aside>
+		
+	<%= form_for(@order) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.label :address %>
+	<%= f.text_field  :address%>
+	<%= f.label :phone %>
+	<%= f.text_field :phone %>
+	<%= f.label :note %>
+	<%= f.text_area :note %>
+	<%= f.hidden_field :status, value: "new" %>
+	<%= f.submit "Submit information", class: "btn btn-small btn-primary" %>
+<% end %>
+<%= link_to "CanCel",cancel_path, class: "btn btn-small btn-primary" %>
+
+</aside>
+</div>

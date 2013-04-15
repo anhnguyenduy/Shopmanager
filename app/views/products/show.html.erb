@@ -1,0 +1,23 @@
+<h1> View Product </h1>
+<div class="span6 offset3">
+<div class="span4">
+	<div id="image">
+	<h1><%= gravatar_for_product @product, size:100 %><h1>
+	</div>
+	<div id="info" style="clear:both;">
+	<h4>Name:  <%= @product.name %></h4>
+	<h5>Price: <%= @product.cost %></h5>
+	
+	<b><%= link_to "Add to cart", new_cart_path %></b>
+	
+	<% if !current_user.nil? && current_user.admin   %> 
+	<%= link_to "Edit Product", edit_product_path(@product) %>
+	<% end %> 
+	
+</br>
+
+	<b>Description: </b></br> <p class="des_product"><%= @product.description %></p>
+	
+</div>
+	</div>
+</div>

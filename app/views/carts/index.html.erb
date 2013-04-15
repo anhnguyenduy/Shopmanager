@@ -1,0 +1,29 @@
+<% provide(:title,"Cart")%>
+<h1> Your Cart</h1>
+<aside>
+<div class="Cart pan6">
+	<table border=2 solid>
+		<tr><td>Name</td>
+			<td>Price</td>
+			<td>Number</td>
+			<td>Total Price </td>
+			<td>Action</td>
+		</tr>
+	<% @carts.each do |c| %>
+	<tr>	
+	<td>  <%= c.name_product %></td>
+	<td> <%= c.price_product %></td>
+	<td>   <%= c.number_product %></td>
+	<td>  <%= c.total_price %></td>
+	
+	<td><%= link_to "Remove", c, method: "delete", data: {confirm: "You sure?"}  %></td>
+
+</tr>
+<% end %>
+<tr> <td colspan=3> Tong gia tri </td> <td colspan=1><%= @sumary_price %></td> <td></td></tr>
+	</table>
+	<%= link_to "Continue Shop", root_url ,class:"btn btn-small btn-primary" %>
+<%= link_to "Pay Now!", new_order_path ,class:"btn btn-small btn-primary" %>
+</div>
+
+</aside>

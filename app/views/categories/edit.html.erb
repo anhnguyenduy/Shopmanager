@@ -1,0 +1,16 @@
+<h1> New Category </h1>
+<div class=" hero-unit">
+
+	<div>
+			<%= form_for(@category) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+			<%= f.submit "Save Change?", class: "btn btn-large btn-primary" %>
+			
+
+			<% end %>
+			<%= link_to "Add Product",new_product_path, class: "btn btn-large btn-primary"%>
+</div>
+
+</div>

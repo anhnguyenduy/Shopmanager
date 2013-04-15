@@ -1,0 +1,31 @@
+<div class="span8 offset3">
+
+<h1><%= @category.name %> (<%= @products.count %>)  </h1>
+<%= will_paginate @products %>
+	<ul style="list-style:none;">
+
+	<% @products.each do |p| %>
+	<section>
+<li style="border-bottom:solid 1px green;">	
+		
+		<%= gravatar_for_product(p, size: 40) %>
+		<h3> <%= p.name %>
+		<h4> Price: <%= p.cost %> </h4>
+		</h3>
+			<%= link_to "View detail", p %>
+		<% if signed_in? %>
+			|<%= link_to "Edit", edit_product_path(p) %>
+			|<%= link_to "Delete", p, method: "delete", data: {confirm: "You Sure?"} %>
+		<%end %>
+</li>
+</section>
+	<% end %>
+
+</ul>
+<%= will_paginate @products %>
+</div>
+<% if  !current_user.nil? &&current_user.admin  %>
+<div class="center "> 
+	<%= link_to "Add new Product", new_product_path, class: "btn btn-small btn-primary" %>
+	<div>
+<% end %>

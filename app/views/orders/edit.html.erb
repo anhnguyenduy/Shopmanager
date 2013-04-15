@@ -1,0 +1,8 @@
+<h1> Update Status</h1>
+<%=form_for(@order)  do |f| %>
+
+ <%= render 'shared/error_messages', object: f.object %>
+<%=f.label :status , "Order Status" %>
+<%= f.text_field :status %>
+<%= f.submit "Update Statust" %>
+<% end %>
